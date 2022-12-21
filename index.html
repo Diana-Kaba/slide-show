@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        #wrap {
+            width: 320px;
+            height: 360px;
+            overflow: hidden;
+        }
+
+        .slider {
+            position: relative;
+            left: 0;
+            width: 320px;
+            height: 360px;
+            object-fit: cover;
+            transition: all 0.5s;
+            opacity: 1;
+        }
+
+        .mini {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            padding: 5px;
+        }
+
+        .fade {
+            opacity: 0;
+        }
+
+        .go {
+            left: 520px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <img id="slider" class="slider" src="./images/fl1.jpg">
+    </div>
+    <img src="./images/fl1.jpg" alt="" class="mini"><img src="./images/fl2.jpg" alt="" class="mini"><img
+        src="./images/fl3.jpg" alt="" class="mini"><br>
+    <button id="prev">&lt;</button>
+    <button id="next">&gt;</button><br><br>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button><br><br>
+    <!-- <form action="" name="effects">
+        <input type="radio" name="effect" value="none" checked />None<br />
+        <input type="radio" name="effect" value="go" />Go<br />
+        <input type="radio" name="effect" value="fade" />Fade<br />
+        <br />
+        <input type="button" id="get_effect" value="Get effect" />
+    </form> -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
