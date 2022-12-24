@@ -20,6 +20,12 @@ let effectButton = document.getElementById("get_effect");
 // }
 
 function next() {
+  addEffect();
+  setTimeout(changeNext, 500);
+  setTimeout(removeEffect, 500);
+}
+
+function changeNext() {
   i++;
   if (i >= arrSrc.length) {
     i = 0;
@@ -50,33 +56,39 @@ function showSlide(event) {
   slider.src = imageMini.src;
 }
 
-// function getEffect() {
-//   let ef = document.forms.effects;
-//   for (let i = 0; i < ef.length; i++) {
-//     if (ef[i].checked) {
-//       effect = ef[i].value;
-//     }
-//   }
-// }
+function getEffect() {
+  removeEffect();
+  let ef = document.forms.effects;
+  for (let i = 0; i < ef.length; i++) {
+    if (ef[i].checked) {
+      effect = ef[i].value;
+    }
+  }
+}
 
-// function changeEffect() {
-//   removeEffect();
-//   slider.classList.add("effect");
-// }
+function changeEffect(event) {
+  removeEffect();
+  effect = event.target.value;
+}
 
-// function addEffect() {
-//   slider.classList.add("effect");
-// }
+function addEffect() {
+  slider.classList.add("effect");
+}
 
-// function removeEffect() {
-//   slider.classList.remove("effect");
-// }
+function removeEffect() {
+  slider.classList.remove("effect");
+}
 
 nextButton.addEventListener("click", next);
 prevButton.addEventListener("click", prev);
 startButton.addEventListener("click", start);
 stopButton.addEventListener("click", stop);
 // effectButton.addEventListener("click", getEffect);
+
+let ef = document.forms.effects;
+for (let i = 0; i < ef.length; i++) {
+  ef[i].addEventListener("change", changeEffect);
+}
 
 for (let j = 0; j < miniatures.length; j++) {
   miniatures[j].addEventListener("click", showSlide);
